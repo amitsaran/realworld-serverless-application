@@ -31,24 +31,10 @@ Resources:
       Location: '../../backend/sam/app/template.yaml'
       Parameters:
         Stage: !Ref Stage
-  Ops:
-    Type: 'AWS::Serverless::Application'
-    Properties:
-      Location: '../../ops/sam/app/template.yaml'
-      Parameters:
-        Stage: !Ref Stage
-    DependsOn: Backend
   Website:
     Type: 'AWS::Serverless::Application'
     Properties:
       Location: '../../static-website/sam/app/template.yaml'
-      Parameters:
-        Stage: !Ref Stage
-    DependsOn: Backend
-  Analytics:
-    Type: 'AWS::Serverless::Application'
-    Properties:
-      Location: '../../analytics/sam/app/template.yaml'
       Parameters:
         Stage: !Ref Stage
     DependsOn: Backend
